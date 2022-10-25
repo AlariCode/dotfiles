@@ -188,6 +188,8 @@ local config = {
 		"tpope/vim-fugitive"
 	}, { 
 		"joshdick/onedark.vim"
+	}, { 
+		"mattn/emmet-vim"
 	},
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
