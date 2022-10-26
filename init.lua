@@ -63,12 +63,12 @@ local config = {
   -- Set dashboard header
   header = {
     "░░░░░░░░░░░╔╗░░░░░░░░░╔╗░░░░░░░╔╗░",
-	"░░░░░░░░░░░║║░░░░░░░░░║║░░░░░░░║║░",
-	"╔══╦╗╔╦═╦══╣║╔══╦══╦══╣╚═╦══╦══╣║░",
-	"║╚╝║╚╝║║║╚╝║╚╣║═╬══║╚═╣║║║╚╝║╚╝║╚╗",
-	"║╔═╩══╩╝║╔═╩═╩══╩══╩══╩╝╚╩══╩══╩═╝",
-	"║║░░░░░░║║░░░░░░░░░░░░░░░░░░░░░░░░",
-	"╚╝░░░░░░╚╝░░░░░░░░░░░░░░░░░░░░░░░░",
+    "░░░░░░░░░░░║║░░░░░░░░░║║░░░░░░░║║░",
+    "╔══╦╗╔╦═╦══╣║╔══╦══╦══╣╚═╦══╦══╣║░",
+    "║╚╝║╚╝║║║╚╝║╚╣║═╬══║╚═╣║║║╚╝║╚╝║╚╗",
+    "║╔═╩══╩╝║╔═╩═╩══╩══╩══╩╝╚╩══╩══╩═╝",
+    "║║░░░░░░║║░░░░░░░░░░░░░░░░░░░░░░░░",
+    "╚╝░░░░░░╚╝░░░░░░░░░░░░░░░░░░░░░░░░",
   },
 
   -- Default theme configuration
@@ -166,8 +166,8 @@ local config = {
       ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
-	  ["<leader>nn"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
-	  ["<leader>nf"] = { "<cmd>Neotree focus<cr>", desc = "Focus Explorer" }
+      --   ["<leader>nn"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
+      --   ["<leader>nf"] = { "<cmd>Neotree focus<cr>", desc = "Focus Explorer" }
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
@@ -182,15 +182,17 @@ local config = {
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
-	{
-		"HerringtonDarkholme/yats.vim"
-	}, { 
-		"tpope/vim-fugitive"
-	}, { 
-		"joshdick/onedark.vim"
-	}, { 
-		"mattn/emmet-vim"
-	},
+      {
+        "HerringtonDarkholme/yats.vim"
+      }, {
+        "tpope/vim-fugitive"
+      }, {
+        "joshdick/onedark.vim"
+      }, {
+        "mattn/emmet-vim"
+      }, {
+        'pantharshit00/vim-prisma'
+      }
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
       -- { "andweeb/presence.nvim" },
@@ -212,21 +214,21 @@ local config = {
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     -- ["null-ls"] = function()
-	-- 	local status_ok, null_ls = pcall(require, "null-ls")
-	-- 	if status_ok then
-	-- 	null_ls.setup {
-	-- 		debug = false,
-	-- 		sources = {
-	-- 			null_ls.builtins.formatting.prettier,
-	-- 		},
-	-- 		on_attach = function(client)
-	-- 		if client.resolved_capabilities.document_formatting then
-	-- 			vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
-	-- 		end
-	-- 		end,
-	-- 	}
-	-- 	end
-	-- end,
+    -- 	local status_ok, null_ls = pcall(require, "null-ls")
+    -- 	if status_ok then
+    -- 	null_ls.setup {
+    -- 		debug = false,
+    -- 		sources = {
+    -- 			null_ls.builtins.formatting.prettier,
+    -- 		},
+    -- 		on_attach = function(client)
+    -- 		if client.resolved_capabilities.document_formatting then
+    -- 			vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+    -- 		end
+    -- 		end,
+    -- 	}
+    -- 	end
+    -- end,
     treesitter = { -- overrides `require("treesitter").setup(...)`
       -- ensure_installed = { "lua" },
     },
