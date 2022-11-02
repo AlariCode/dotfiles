@@ -162,10 +162,10 @@ local config = {
     n = {
       -- second key is the lefthand side of the map
       -- mappings seen under group name "Buffer"
-      ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-      ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
-      ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
-      ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+      -- ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+      -- ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
+      -- ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
+      -- ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
       --   ["<leader>nn"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
       --   ["<leader>nf"] = { "<cmd>Neotree focus<cr>", desc = "Focus Explorer" }
       -- quick save
@@ -183,8 +183,6 @@ local config = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
       {
-        "HerringtonDarkholme/yats.vim"
-      }, {
         "tpope/vim-fugitive"
       }, {
         "joshdick/onedark.vim"
