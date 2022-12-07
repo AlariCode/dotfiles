@@ -160,6 +160,7 @@ local config = {
   mappings = {
     -- first key is the mode
     n = {
+      ["<C-\\>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
       -- second key is the lefthand side of the map
       -- mappings seen under group name "Buffer"
       -- ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
@@ -172,6 +173,8 @@ local config = {
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
     t = {
+      ["<esc>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
+      ["jk"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
       -- setting a mapping to false will disable it
       -- ["<esc>"] = false,
     },
@@ -246,7 +249,9 @@ local config = {
   -- LuaSnip Options
   luasnip = {
     -- Add paths for including more VS Code style snippets in luasnip
-    vscode_snippet_paths = {},
+    vscode_snippet_paths = {
+      "./lua/user/snippets"
+    },
     -- Extend filetypes
     filetype_extend = {
       javascript = { "javascriptreact" },
