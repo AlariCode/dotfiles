@@ -8,16 +8,17 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export KUBECONFIG=/Users/alaricode/.kube/purple-cluster_kubeconfig.yaml
+export KUBECONFIG="$HOME/.kube/purple-cluster_kubeconfig.yaml"
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+[ -s '/usr/local/opt/nvm/nvm.sh' ] && source '/usr/local/opt/nvm/nvm.sh'  # This loads nvm
+[ -s '/usr/local/opt/nvm/etc/bash_completion.d/nvm' ] && source '/usr/local/opt/nvm/etc/bash_completion.d/nvm'  # This loads nvm bash_completion
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME='powerlevel10k/powerlevel10k'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -81,7 +82,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git z docker fzf thefuck zsh-autosuggestions history)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
@@ -110,30 +111,32 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # The next line updates PATH for client-keystone-auth.
-if [ -f '/Users/alaricode/vk-cloud-solutions/path.bash.inc' ]; then source '/Users/alaricode/vk-cloud-solutions/path.bash.inc'; fi
+[ -f "$HOME/vk-cloud-solutions/path.bash.inc" ] && source "$HOME/vk-cloud-solutions/path.bash.inc"
 
 # bun completions
-[ -s "/Users/alaricode/.bun/_bun" ] && source "/Users/alaricode/.bun/_bun"
-alias ls="eza --tree --level=1 --icons=always --no-time --no-user --no-permissions"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+alias ls='eza --tree --level=1 --icons=always --no-time --no-user --no-permissions'
 
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH="/Users/alaricode/.cargo/bin"
-export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:${PATH}
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:/bin:/usr/bin:/usr/local/bin:/sbin"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(fzf --zsh)"
+
 function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  local cwd="$(cat -- "$tmp")"
+  if [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
 function htt() {
-  httpyac $1 --json -a | jq -r ".requests[0].response.body" | jq | bat --language=json
+  httpyac "$1" --json -a | jq -r '.requests[0].response.body' | bat --language=json
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
